@@ -46,7 +46,7 @@ Siga os passos abaixo para configurar um ambiente de desenvolvimento:
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seuusuario/seuprojeto.git
+git clone https://github.com/Rhaiffer/teste-indecx
 ```
 
 2. No seu VSCod, navegue até o diretório do projeto e abra :
