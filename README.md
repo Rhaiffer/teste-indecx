@@ -24,7 +24,7 @@
 
 # Teste-INDECX
 
-Este projeto é um gerenciador de tarefas, onde você pode cadastrar e gerenciar seus tarefas do dia a dia. Ele permite que você mantenha um registro de todas as suas tarefas, tornando mais fácil para você encontrar e organizar-las. Com este projeto.
+Este projeto é um gerenciador de tarefas, onde você pode cadastrar e gerenciar seus tarefas do dia a dia. Ele permite que você mantenha um registro de todas as suas tarefas, tornando mais fácil para você encontrar e organizar-las.
 
 ## Começando
 
