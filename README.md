@@ -98,7 +98,6 @@ Agora, o seu projeto deve estar rodando em localhost:3000 (ou a porta que você 
 
 
 
-
 8. Para rodar os testes basta utilizar o comando:
 
 ```bash
