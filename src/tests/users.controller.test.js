@@ -20,22 +20,20 @@ afterAll(async () => {
 jest.mock('../middlewares/checkLogin.js', () => (req, res, next) => {
   req.user = {
     id: '123',
-    firstName: 'Rhaiffer',
-    lastName: 'Menezes',
-    email: 'rhaiffer@gmail.com',
-    // Inclua quaisquer outros campos que você precisa no objeto do usuário
+    firstName: 'John',
+    lastName: 'Doe',
+    email: 'johndoe@example.com',
   };
   next();
 });
 // Descrevendo o grupo de testes para a rota '/api/v1/users'
 describe('/api/v1/users', () => {
-  // Após cada teste, limpe todos os usuários do banco de dados
+  // Após cada teste, limpa todos os usuários do banco de dados
   afterEach(async () => {
     await User.deleteMany({});
   });
 
-  // Teste para registrar um novo usuário
-  it('should register a new user', async () => {
+  it('deve registrar um novo usuário', async () => {
     const response = await request(app)
       .post('/api/v1/users')
       .send({
@@ -55,8 +53,7 @@ describe('/api/v1/users', () => {
     await User.deleteOne({ email: 'johndoe@example.com' });
   });
 
-  // Teste para verificar se um erro é retornado quando os parâmetros obrigatórios estão faltando
-  it('should return an error if required parameters are missing', async () => {
+  it('deve retornar um erro se os parâmetros necessários estiverem faltando', async () => {
     const response = await request(app)
       .post('/api/v1/users')
       .send({
@@ -69,8 +66,7 @@ describe('/api/v1/users', () => {
     expect(response.body.message).toBe('O campo email é obrigatório!');
   });
 
-  // Teste para verificar se um erro é retornado quando o email já está registrado
-  it('should return an error if email is already registered', async () => {
+  it('deve retornar um erro se o e-mail já estiver registrado', async () => {
     // Criando um usuário com o mesmo email
     const existingUser = new User({
       firstName: 'Jane',
@@ -97,8 +93,7 @@ describe('/api/v1/users', () => {
     await User.deleteOne({ email: 'johndoe@example.com' });
   });
 
-  // Teste para verificar se um erro é retornado quando ocorre um erro inesperado
-  it('should return an error if an unexpected error occurs', async () => {
+  it('deve retornar um erro se ocorrer um erro inesperado', async () => {
     // Simulando um erro na função save
     const saveMock = jest.spyOn(User.prototype, 'save').mockImplementation(() => {
       throw new Error();
@@ -124,7 +119,7 @@ describe('/api/v1/users', () => {
   });
 
   // Teste para verificar se um erro é retornado quando a senha não atende aos requisitos
-  it('should return an error if password does not meet requirements', async () => {
+  it('deve retornar um erro se a senha não atender aos requisitos', async () => {
     const response = await request(app)
       .post('/api/v1/users')
       .send({
@@ -143,155 +138,195 @@ describe('/api/v1/users', () => {
 /////////////////////////////////////////////////// TESTES DE UPDATE DE USUARIO //////////////////////////////////////////////////////
 
 describe('updateUser', () => {
-it('should update a user', async () => {
-  try {
-    const id = 'user_id';
-    const req = {
-      params: { id },
-      userId: id,
-      body: {
-        firstName: 'John',
-        lastName: 'Doe',
-        email: 'johndoe@example.com',
-        password: 'password123'
-      }
-    };
-    const res = {
-      status: jest.fn().mockReturnThis(),
-      json: jest.fn()
-    };
-    const genSaltSyncMock = jest.spyOn(bcrypt, 'genSaltSync').mockReturnValue('salt');
-    const hashSyncMock = jest.spyOn(bcrypt, 'hashSync').mockReturnValue('hashed_password');
-    const findByIdMock = jest.spyOn(User, 'findById').mockResolvedValueOnce({ id: '123' });
-    const findByIdAndUpdateMock = jest.spyOn(User, 'findByIdAndUpdate').mockResolvedValueOnce({ id: '123' });
+  it('deve atualizar um usuário', async () => {
+    try {
+      // Define o ID do usuário e a requisição
+      const id = 'user_id';
+      const req = {
+        params: { id },
+        userId: id,
+        body: {
+          firstName: 'John',
+          lastName: 'Doe',
+          email: 'johndoe@example.com',
+          password: 'password123'
+        }
+      };
 
-    await updateUser(req, res);
+      // Mock da resposta
+      const res = {
+        status: jest.fn().mockReturnThis(),
+        json: jest.fn()
+      };
 
-    expect(findByIdMock).toHaveBeenCalledWith(id);
-    expect(genSaltSyncMock).toHaveBeenCalledWith(10);
-    expect(hashSyncMock).toHaveBeenCalledWith(req.body.password, 'salt');
-    expect(findByIdAndUpdateMock).toHaveBeenCalledWith(id, {
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      email: req.body.email,
-      password: 'hashed_password'
-    });
-    expect(res.status).toHaveBeenCalledWith(200);
-    expect(res.json).toHaveBeenCalledWith({ message: 'Usuário atualizado com sucesso!' });
+      // Mock das funções do bcrypt e do User
+      const genSaltSyncMock = jest.spyOn(bcrypt, 'genSaltSync').mockReturnValue('salt');
+      const hashSyncMock = jest.spyOn(bcrypt, 'hashSync').mockReturnValue('hashed_password');
+      const findByIdMock = jest.spyOn(User, 'findById').mockResolvedValueOnce({ id: '123' });
+      const findByIdAndUpdateMock = jest.spyOn(User, 'findByIdAndUpdate').mockResolvedValueOnce({ id: '123' });
 
-    findByIdMock.mockRestore();
-    genSaltSyncMock.mockRestore();
-    hashSyncMock.mockRestore();
-    findByIdAndUpdateMock.mockRestore();
-  } catch (err) {
-    console.error('Erro capturado:', err.stack);
-  }
+      // Chama a função updateUser
+      await updateUser(req, res);
+
+      // Verifica se as funções foram chamadas com os argumentos corretos
+      expect(findByIdMock).toHaveBeenCalledWith(id);
+      expect(genSaltSyncMock).toHaveBeenCalledWith(10);
+      expect(hashSyncMock).toHaveBeenCalledWith(req.body.password, 'salt');
+      expect(findByIdAndUpdateMock).toHaveBeenCalledWith(id, {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        password: 'hashed_password'
+      });
+      expect(res.status).toHaveBeenCalledWith(200);
+      expect(res.json).toHaveBeenCalledWith({ message: 'Usuário atualizado com sucesso!' });
+
+      // Restaura os mocks para o estado original
+      findByIdMock.mockRestore();
+      genSaltSyncMock.mockRestore();
+      hashSyncMock.mockRestore();
+      findByIdAndUpdateMock.mockRestore();
+    } catch (err) {
+      // Captura e registra qualquer erro que ocorra durante o teste
+      console.error('Erro capturado:', err.stack);
+    }
+  });
+
+ it('deve retornar 404 se o usuário não for encontrado', async () => {
+  // Define o ID do usuário e a requisição
+  const id = 'user_id';
+  const req = {
+    params: { id },
+    userId: id,
+    body: {
+      firstName: 'John',
+      lastName: 'Doe',
+      email: 'johndoe@example.com',
+      password: 'password123'
+    }
+  };
+
+  // Mock da resposta
+  const res = {
+    status: jest.fn().mockReturnThis(),
+    json: jest.fn()
+  };
+
+  // Importa o modelo User e a função updateUser
+  const User = require('../models/user.model');
+  const { updateUser } = require('../controllers/users.controller');
+
+  // Mock da função findById do modelo User para retornar null
+  const findByIdMock = jest.spyOn(User, 'findById').mockResolvedValueOnce(null);
+
+  // Chama a função updateUser
+  await updateUser(req, res);
+
+  // Verifica se a função findById foi chamada com o ID correto
+  expect(findByIdMock).toHaveBeenCalledWith(id);
+  // Verifica se a função status da resposta foi chamada com 404
+  expect(res.status).toHaveBeenCalledWith(404);
+  // Verifica se a função json da resposta foi chamada com a mensagem correta
+  expect(res.json).toHaveBeenCalledWith({ message: 'Usuário não encontrado!' });
+
+  // Restaura o mock para o estado original
+  findByIdMock.mockRestore();
 });
-  it('should return 404 if user is not found', async () => {
-    const id = 'user_id';
-    const req = {
-      params: { id },
-      userId: id,
-      body: {
-        firstName: 'John',
-        lastName: 'Doe',
-        email: 'johndoe@example.com',
-        password: 'password123'
-      }
-    };
-    const res = {
-      status: jest.fn().mockReturnThis(),
-      json: jest.fn()
-    };
 
-    const User = require('../models/user.model');
-    const { updateUser } = require('../controllers/users.controller');
+  it('deve retornar 400 se a atualização falhar', async () => {
+  // Define o ID do usuário e a requisição
+  const id = 'user_id';
+  const req = {
+    params: { id },
+    userId: id,
+    body: {
+      firstName: 'John',
+      lastName: 'Doe',
+      email: 'johndoe@example.com',
+      password: 'password123'
+    }
+  };
 
-    const findByIdMock = jest.spyOn(User, 'findById').mockResolvedValueOnce(null);
+  // Mock da resposta
+  const res = {
+    status: jest.fn().mockReturnThis(),
+    json: jest.fn()
+  };
 
-    await updateUser(req, res);
+  // Importa o modelo User, o módulo bcrypt e a função updateUser
+  const User = require('../models/user.model');
+  const bcrypt = require('bcrypt');
+  const { updateUser } = require('../controllers/users.controller');
 
-    expect(findByIdMock).toHaveBeenCalledWith(id);
-    expect(res.status).toHaveBeenCalledWith(404);
-    expect(res.json).toHaveBeenCalledWith({ message: 'Usuário não encontrado!' });
+  // Mock das funções do User e do bcrypt
+  const findByIdMock = jest.spyOn(User, 'findById').mockResolvedValueOnce({});
+  const genSaltSyncMock = jest.spyOn(bcrypt, 'genSaltSync').mockReturnValue('salt');
+  const hashSyncMock = jest.spyOn(bcrypt, 'hashSync').mockReturnValue('hashed_password');
+  const findByIdAndUpdateMock = jest.spyOn(User, 'findByIdAndUpdate').mockResolvedValueOnce(null);
 
-    findByIdMock.mockRestore();
+  // Chama a função updateUser
+  await updateUser(req, res);
+
+  // Verifica se as funções foram chamadas com os argumentos corretos
+  expect(findByIdMock).toHaveBeenCalledWith(id);
+  expect(genSaltSyncMock).toHaveBeenCalledWith(10);
+  expect(hashSyncMock).toHaveBeenCalledWith(req.body.password, 'salt');
+  expect(findByIdAndUpdateMock).toHaveBeenCalledWith(id, {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    password: 'hashed_password'
   });
+  // Verifica se a função status da resposta foi chamada com 400
+  expect(res.status).toHaveBeenCalledWith(400);
+  // Verifica se a função json da resposta foi chamada com a mensagem correta
+  expect(res.json).toHaveBeenCalledWith({ message: 'Erro ao atualizar usuário!' });
 
-  it('should return 400 if update fails', async () => {
-    const id = 'user_id';
-    const req = {
-      params: { id },
-      userId: id,
-      body: {
-        firstName: 'John',
-        lastName: 'Doe',
-        email: 'johndoe@example.com',
-        password: 'password123'
-      }
-    };
-    const res = {
-      status: jest.fn().mockReturnThis(),
-      json: jest.fn()
-    };
+  // Restaura os mocks para o estado original
+  findByIdMock.mockRestore();
+  genSaltSyncMock.mockRestore();
+  hashSyncMock.mockRestore();
+  findByIdAndUpdateMock.mockRestore();
+});
 
-    const User = require('../models/user.model');
-    const bcrypt = require('bcrypt');
-    const { updateUser } = require('../controllers/users.controller');
+  it('deve retornar 500 se ocorrer um erro', async () => {
+  // Define o ID do usuário e a requisição
+  const id = 'user_id';
+  const req = {
+    params: { id },
+    userId: id,
+    body: {
+      firstName: 'John',
+      lastName: 'Doe',
+      email: 'johndoe@example.com',
+      password: 'password123'
+    }
+  };
 
-    const findByIdMock = jest.spyOn(User, 'findById').mockResolvedValueOnce({});
-    const genSaltSyncMock = jest.spyOn(bcrypt, 'genSaltSync').mockReturnValue('salt');
-    const hashSyncMock = jest.spyOn(bcrypt, 'hashSync').mockReturnValue('hashed_password');
-    const findByIdAndUpdateMock = jest.spyOn(User, 'findByIdAndUpdate').mockResolvedValueOnce(null);
+  // Mock da resposta
+  const res = {
+    status: jest.fn().mockReturnThis(),
+    json: jest.fn()
+  };
 
-    await updateUser(req, res);
+  // Importa o modelo User e a função updateUser
+  const User = require('../models/user.model');
+  const { updateUser } = require('../controllers/users.controller');
 
-    expect(findByIdMock).toHaveBeenCalledWith(id);
-    expect(genSaltSyncMock).toHaveBeenCalledWith(10);
-    expect(hashSyncMock).toHaveBeenCalledWith(req.body.password, 'salt');
-    expect(findByIdAndUpdateMock).toHaveBeenCalledWith(id, {
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      email: req.body.email,
-      password: 'hashed_password'
-    });
-    expect(res.status).toHaveBeenCalledWith(400);
-    expect(res.json).toHaveBeenCalledWith({ message: 'Erro ao atualizar usuário!' });
+  // Mock da função findById do modelo User para rejeitar com um erro
+  const findByIdMock = jest.spyOn(User, 'findById').mockRejectedValueOnce(new Error());
 
-    findByIdMock.mockRestore();
-    genSaltSyncMock.mockRestore();
-    hashSyncMock.mockRestore();
-    findByIdAndUpdateMock.mockRestore();
-  });
+  // Chama a função updateUser
+  await updateUser(req, res);
 
-  it('should return 500 if an error occurs', async () => {
-    const id = 'user_id';
-    const req = {
-      params: { id },
-      userId: id,
-      body: {
-        firstName: 'John',
-        lastName: 'Doe',
-        email: 'johndoe@example.com',
-        password: 'password123'
-      }
-    };
-    const res = {
-      status: jest.fn().mockReturnThis(),
-      json: jest.fn()
-    };
+  // Verifica se a função findById foi chamada com o ID correto
+  expect(findByIdMock).toHaveBeenCalledWith(id);
+  // Verifica se a função status da resposta foi chamada com 500
+  expect(res.status).toHaveBeenCalledWith(500);
+  // Verifica se a função json da resposta foi chamada com a mensagem correta
+  expect(res.json).toHaveBeenCalledWith({ message: 'Erro ao atualizar usuário!' });
 
-    const User = require('../models/user.model');
-    const { updateUser } = require('../controllers/users.controller');
-
-    const findByIdMock = jest.spyOn(User, 'findById').mockRejectedValueOnce(new Error());
-
-    await updateUser(req, res);
-
-    expect(findByIdMock).toHaveBeenCalledWith(id);
-    expect(res.status).toHaveBeenCalledWith(500);
-    expect(res.json).toHaveBeenCalledWith({ message: 'Erro ao atualizar usuário!' });
-
-    findByIdMock.mockRestore();
-  });
+  // Restaura o mock para o estado original
+  findByIdMock.mockRestore();
+});
 });
