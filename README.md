@@ -49,7 +49,7 @@ Siga os passos abaixo para configurar um ambiente de desenvolvimento:
 git clone https://github.com/Rhaiffer/teste-indecx
 ```
 
-2. No seu VSCod, navegue até o diretório do projeto e abra :
+2. No seu VS Code, navegue até o diretório do projeto e abra :
 
 
 
@@ -65,9 +65,9 @@ git clone https://github.com/Rhaiffer/teste-indecx
 
 
 5.Instale as dependências do projeto:
-
-
-
+```bash
+$ npm install
+```
 
 6.Inicie o projeto
 ```bash
