@@ -1,0 +1,518 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "API para gerenciamento de tarefas",
+    "description": " API para gerenciamento de tarefas desenvolvida com Node.js, Express, MongoDB e JWT."
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/api/auth/login": {
+      "post": {
+        "sumary": "Autenticação de usuário",
+        "description": " Autenticação de usuário",
+        "tags": [
+          "Auth"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "example": "email@email.com"
+                },
+                "password": {
+                  "example": "password"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/users": {
+      "post": {
+        "sumary": "Criação de usuário",
+        "description": " Criação de usuário",
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "example": "email@email.com"
+                },
+                "password": {
+                  "example": "password"
+                },
+                "firstName": {
+                  "example": "Seu nome"
+                },
+                "lastName": {
+                  "example": "Seu sobrenome"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "get": {
+        "sumary": "Listagem de usuários",
+        "description": " Listagem de usuários",
+        "tags": [
+          "User"
+        ],
+         "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "description": "Para inserir o token de autenticação, clique no botão Authorize e insira o token no campo value dessa forma: Bearer {token}",
+            "schema": "bearer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/users/{id}": {
+      "get": {
+        "sumary": "Busca de usuário por ID",
+        "description": " Busca de usuário por ID",
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "description": "Para inserir o token de autenticação, clique no botão Authorize e insira o token no campo value dessa forma: Bearer {token}",
+            "schema": "bearer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "sumary": "Atualização de usuário",
+        "description": " Atualização de usuário",
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "description": "Para inserir o token de autenticação, clique no botão Authorize e insira o token no campo value dessa forma: Bearer {token}",
+            "schema": "bearer"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "example": "novo email ou vazio"
+                },
+                "password": {
+                  "example": "Nova senha ou vazio"
+                },
+                "firstName": {
+                  "example": "Seu nome ou vazio"
+                },
+                "lastName": {
+                  "example": "Seu sobrenome ou vazio"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "sumary": "Exclusão de usuário",
+        "description": " Exclusão de usuário",
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "description": "Para inserir o token de autenticação, clique no botão Authorize e insira o token no campo value dessa forma: Bearer {token}",
+            "schema": "bearer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/tasks": {
+      "post": {
+        "sumary": "Criação de tarefa",
+        "description": " Criação de tarefa",
+        "tags": [
+          "Task"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "description": "Para inserir o token de autenticação, clique no botão Authorize e insira o token no campo value dessa forma: Bearer {token}",
+            "schema": "bearer"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "example": "Titulo da tarefa"
+                },
+                "description": {
+                  "example": "Descrição da tarefa"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "get": {
+        "sumary": "Listagem de tarefas",
+        "description": " Listagem de tarefas",
+        "tags": [
+          "Task"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "description": "Para inserir o token de autenticação, clique no botão Authorize e insira o token no campo value dessa forma: Bearer {token}",
+            "schema": "bearer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/tasks/search": {
+      "get": {
+        "sumary": "Busca de tarefas por status e/ou data",
+        "description": " Busca de tarefas por status e data. para realiza a busca utilize os parametros status e date na url. Ex: /api/v1/tasks/search?status=Concluído&date=01/01/2020",
+        "tags": [
+          "Task"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "description": "Para inserir o token de autenticação, clique no botão Authorize e insira o token no campo value dessa forma: Bearer {token}",
+            "schema": "bearer"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/tasks/{id}": {
+      "get": {
+        "sumary": "Busca de tarefa por ID",
+        "description": " Busca de tarefa por ID",
+        "tags": [
+          "Task"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "description": "Para inserir o token de autenticação, clique no botão Authorize e insira o token no campo value dessa forma: Bearer {token}",
+            "schema": "bearer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "sumary": "Atualização de tarefa",
+        "description": "  Atualização de tarefa",
+        "tags": [
+          "Task"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "description": "Para inserir o token de autenticação, clique no botão Authorize e insira o token no campo value dessa forma: Bearer {token}",
+            "schema": "bearer"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "example": "Concluído ou Em Andamento"
+                },
+                "title": {
+                  "example": "Novo titulo ou vazio"
+                },
+                "description": {
+                  "example": "Nova descrição ou vazio"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "sumary": "Exclusão de tarefa",
+        "description": " Exclusão de tarefa",
+        "tags": [
+          "Task"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "description": "Para inserir o token de autenticação, clique no botão Authorize e insira o token no campo value dessa forma: Bearer {token}",
+            "schema": "bearer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  }
+}
