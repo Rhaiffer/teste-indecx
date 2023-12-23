@@ -52,13 +52,21 @@ git clone https://github.com/seuusuario/seuprojeto.git
 2. No seu VSCod, navegue até o diretório do projeto e abra :
 
 
+
+
 3. Na Raiz do projeto, crie um arquivo .env 
+
+
 
 
 4. Agora, edite os arquivos .env com as variáveis de ambinete do arquivo .env.example. Não esqueça de alterar o "MONGO_URI" pela sua URI do mongoDb.
 
 
+
+
 5.Instale as dependências do projeto:
+
+
 
 
 6.Inicie o projeto
@@ -66,22 +74,33 @@ git clone https://github.com/seuusuario/seuprojeto.git
 $ npm run start
 ```
 
+
+
 7.Para iniciar o Docker, abra um novo terminal e execute:
+
 ```bash
 $ docker build -t teste-indecx .
 ```
+
 E depois: 
+
 ```bash
 $ docker-compose up
 ```
+
 Se você deseja parar o Docker, abra um novo terminal e execute:
+
 ```bash
 $ docker-compose down
 ```
+
 Agora, o seu projeto deve estar rodando em localhost:3000 (ou a porta que você definiu no seu arquivo .env).
 
 
+
+
 8. Para rodar os testes basta utilizar o comando:
+
 ```bash
 $ npm run test
 ```
