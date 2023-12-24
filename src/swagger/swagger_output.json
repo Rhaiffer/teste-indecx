@@ -5,7 +5,7 @@
     "title": "API para gerenciamento de tarefas",
     "description": " API para gerenciamento de tarefas desenvolvida com Node.js, Express, MongoDB e JWT."
   },
-  "host": "localhost:3000",
+  "host": "https://teste-indecx-2cb4e70dcb58.herokuapp.com",
   "basePath": "/",
   "schemes": [
     "http"
