@@ -13,7 +13,7 @@ services:
       - db
   db:
     image: mongo
-    command: ["mongod", "--quiet"]
+    command: ['mongod', '--quiet']
     restart: always
     environment:
       MONGO_INITDB_DATABASE: ${MONGO_DB}

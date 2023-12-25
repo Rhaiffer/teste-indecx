@@ -7,17 +7,13 @@
   },
   "host": "teste-indecx-2cb4e70dcb58.herokuapp.com",
   "basePath": "/",
-  "schemes": [
-    "https"
-  ],
+  "schemes": ["https"],
   "paths": {
     "/api/auth/login": {
       "post": {
         "sumary": "Autenticação de usuário",
         "description": " Autenticação de usuário",
-        "tags": [
-          "Auth"
-        ],
+        "tags": ["Auth"],
         "parameters": [
           {
             "name": "body",
@@ -52,9 +48,7 @@
       "post": {
         "sumary": "Criação de usuário",
         "description": " Criação de usuário",
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "parameters": [
           {
             "name": "body",
@@ -93,10 +87,8 @@
       "get": {
         "sumary": "Listagem de usuários",
         "description": " Listagem de usuários",
-        "tags": [
-          "User"
-        ],
-         "parameters": [
+        "tags": ["User"],
+        "parameters": [
           {
             "name": "authorization",
             "in": "header",
@@ -119,9 +111,7 @@
       "get": {
         "sumary": "Busca de usuário por ID",
         "description": " Busca de usuário por ID",
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "parameters": [
           {
             "name": "id",
@@ -158,9 +148,7 @@
       "put": {
         "sumary": "Atualização de usuário",
         "description": " Atualização de usuário",
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "parameters": [
           {
             "name": "id",
@@ -218,9 +206,7 @@
       "delete": {
         "sumary": "Exclusão de usuário",
         "description": " Exclusão de usuário",
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "parameters": [
           {
             "name": "id",
@@ -259,9 +245,7 @@
       "post": {
         "sumary": "Criação de tarefa",
         "description": " Criação de tarefa",
-        "tags": [
-          "Task"
-        ],
+        "tags": ["Task"],
         "parameters": [
           {
             "name": "authorization",
@@ -304,9 +288,7 @@
       "get": {
         "sumary": "Listagem de tarefas",
         "description": " Listagem de tarefas",
-        "tags": [
-          "Task"
-        ],
+        "tags": ["Task"],
         "parameters": [
           {
             "name": "authorization",
@@ -336,9 +318,7 @@
       "get": {
         "sumary": "Busca de tarefas por status e/ou data",
         "description": " Busca de tarefas por status e data. para realiza a busca utilize os parametros status e date na url. Ex: /api/v1/tasks/search?status=Concluído&date=01/01/2020",
-        "tags": [
-          "Task"
-        ],
+        "tags": ["Task"],
         "parameters": [
           {
             "name": "authorization",
@@ -381,9 +361,7 @@
       "get": {
         "sumary": "Busca de tarefa por ID",
         "description": " Busca de tarefa por ID",
-        "tags": [
-          "Task"
-        ],
+        "tags": ["Task"],
         "parameters": [
           {
             "name": "id",
@@ -420,9 +398,7 @@
       "put": {
         "sumary": "Atualização de tarefa",
         "description": "  Atualização de tarefa",
-        "tags": [
-          "Task"
-        ],
+        "tags": ["Task"],
         "parameters": [
           {
             "name": "id",
@@ -477,9 +453,7 @@
       "delete": {
         "sumary": "Exclusão de tarefa",
         "description": " Exclusão de tarefa",
-        "tags": [
-          "Task"
-        ],
+        "tags": ["Task"],
         "parameters": [
           {
             "name": "id",
