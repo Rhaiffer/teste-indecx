@@ -5,11 +5,10 @@ const routes = require('./routes');
 const app = express();
 const connectDB = require('./scripts/connection');
 const port = process.env.PORT;
-const swaggerUi = require('swagger-ui-express')
-const swaggerFile = require('../src/swagger/swagger_output.json')
+const swaggerUi = require('swagger-ui-express');
+const swaggerFile = require('../src/swagger/swagger_output.json');
 
-
-app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile))
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 const corsOptions = {
   credentials: true,

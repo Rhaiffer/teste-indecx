@@ -51,30 +51,23 @@ git clone https://github.com/Rhaiffer/teste-indecx
 
 2. No seu VS Code, navegue até o diretório do projeto e abra :
 
-
-
-
-3. Na Raiz do projeto, crie um arquivo .env 
-
-
-
+3. Na Raiz do projeto, crie um arquivo .env
 
 4. Agora, edite os arquivos .env com as variáveis de ambinete do arquivo .env.example. Não esqueça de alterar o "MONGO_URI" pela sua URI do mongoDb.
 
-
-
-
 5.Instale as dependências do projeto:
+
 ```bash
 $ npm install
 ```
 
 6.Inicie o projeto
+
 ```bash
 $ npm run start
 ```
-Agora, o seu projeto deve estar rodando em localhost:3000 (ou a porta que você definiu no seu arquivo .env).
 
+Agora, o seu projeto deve estar rodando em localhost:3000 (ou a porta que você definiu no seu arquivo .env).
 
 7.Para iniciar o Docker, abra um novo terminal e execute:
 
@@ -82,7 +75,7 @@ Agora, o seu projeto deve estar rodando em localhost:3000 (ou a porta que você 
 $ docker build -t teste-indecx .
 ```
 
-E depois: 
+E depois:
 
 ```bash
 $ docker-compose up
@@ -94,12 +87,12 @@ Se você deseja parar o Docker, abra um novo terminal e execute:
 $ docker-compose down
 ```
 
-
 8. Para rodar os testes basta utilizar o comando:
 
 ```bash
 $ npm run test
 ```
+
 ## Support
 
 Node is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://nodejs.org/docs/latest/api/).
@@ -112,15 +105,15 @@ A documentação da API foi gerada utilizando o Swagger. Você pode acessá-la e
 
 A qualidade em engenharia de software está em saber escolher a ferramenta adequada para cada tarefa e em manter-se em constante aprendizado. Com isso em mente, apresento minha experiência com as tecnologias empregadas neste projeto:
 
-* [Node.js](https://nodejs.org/) - Com mais de 2 anos de experiência em Node.js, ainda me considero em fase de aprendizado. Optei pelo Node.js neste projeto devido à sua arquitetura robusta e modular.
+- [Node.js](https://nodejs.org/) - Com mais de 2 anos de experiência em Node.js, ainda me considero em fase de aprendizado. Optei pelo Node.js neste projeto devido à sua arquitetura robusta e modular.
 
-* [Jest](https://jestjs.io/) - Tenho usado o Jest para testes em vários projetos. Aprecio sua simplicidade e fácil integração com o Node.js.
+- [Jest](https://jestjs.io/) - Tenho usado o Jest para testes em vários projetos. Aprecio sua simplicidade e fácil integração com o Node.js.
 
-* [Docker](https://www.docker.com/) - Tenho experiência prática com Docker em vários projetos, usando-o para a containerização, o que permite uma fácil configuração e implantação do projeto.
+- [Docker](https://www.docker.com/) - Tenho experiência prática com Docker em vários projetos, usando-o para a containerização, o que permite uma fácil configuração e implantação do projeto.
 
-* [MongoDB](https://www.mongodb.com/) - Tenho experiência com MongoDB e escolhi-o para este projeto por sua confiabilidade e recursos avançados.
+- [MongoDB](https://www.mongodb.com/) - Tenho experiência com MongoDB e escolhi-o para este projeto por sua confiabilidade e recursos avançados.
 
-* [Swagger](https://swagger.io/) - Utilizei o Swagger para a documentação automática da API. Ele fornece uma interface de usuário interativa para a API, tornando mais fácil para os usuários explorarem e testarem a API. Você pode acessar a documentação da API em [http://localhost:3000/docs](http://localhost:3000/docs) ou [https://arcane-dusk-21252-61df4b9d981f.herokuapp.com/docs](https://arcane-dusk-21252-61df4b9d981f.herokuapp.com/docs).
+- [Swagger](https://swagger.io/) - Utilizei o Swagger para a documentação automática da API. Ele fornece uma interface de usuário interativa para a API, tornando mais fácil para os usuários explorarem e testarem a API. Você pode acessar a documentação da API em [http://localhost:3000/docs](http://localhost:3000/docs) ou [https://arcane-dusk-21252-61df4b9d981f.herokuapp.com/docs](https://arcane-dusk-21252-61df4b9d981f.herokuapp.com/docs).
 
 ## License
 
