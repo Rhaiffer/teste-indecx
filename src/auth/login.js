@@ -34,7 +34,7 @@ const loginUser = async (req, res) => {
     const isPasswordValid = bcrypt.compareSync(password, result.password);
 
     if (!isPasswordValid) {
-      return res.status(400).json({ message: 'Senha inválida!' });
+      return res.status(400).json({ message: 'E-mail e/ou senha iváido!' });
     }
 
     const token = jwt.sign({ 
