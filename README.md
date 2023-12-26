@@ -99,7 +99,7 @@ Node is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 ## Documentação da API
 
-A documentação da API foi gerada utilizando o Swagger. Você pode acessá-la em [http://localhost:3000/docs](http://localhost:3000/docs) ou [https://teste-indecx-2cb4e70dcb58.herokuapp.com/docs](https://teste-indecx-2cb4e70dcb58.herokuapp.com/docs).
+A documentação da API foi gerada utilizando o Swagger. Você pode acessá-la em [https://teste-indecx-2cb4e70dcb58.herokuapp.com/docs](https://teste-indecx-2cb4e70dcb58.herokuapp.com/docs).
 
 ## Experiência com as Tecnologias
 
@@ -113,7 +113,7 @@ A qualidade em engenharia de software está em saber escolher a ferramenta adequ
 
 - [MongoDB](https://www.mongodb.com/) - Tenho experiência com MongoDB e escolhi-o para este projeto por sua confiabilidade e recursos avançados.
 
-- [Swagger](https://swagger.io/) - Utilizei o Swagger para a documentação automática da API. Ele fornece uma interface de usuário interativa para a API, tornando mais fácil para os usuários explorarem e testarem a API. Você pode acessar a documentação da API em [http://localhost:3000/docs](http://localhost:3000/docs) ou [https://teste-indecx-2cb4e70dcb58.herokuapp.com/docs](https://teste-indecx-2cb4e70dcb58.herokuapp.com/docs).
+- [Swagger](https://swagger.io/) - Utilizei o Swagger para a documentação automática da API. Ele fornece uma interface de usuário interativa, tornando mais fácil para os usuários explorarem e testarem a API. Você pode acessar a documentação em [https://teste-indecx-2cb4e70dcb58.herokuapp.com/docs](https://teste-indecx-2cb4e70dcb58.herokuapp.com/docs).
 
 ## License
 
