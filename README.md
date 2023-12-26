@@ -53,7 +53,7 @@ git clone https://github.com/Rhaiffer/teste-indecx
 
 3. Na Raiz do projeto, crie um arquivo .env
 
-4. Agora, edite os arquivos .env com as variáveis de ambinete do arquivo .env.example. Não esqueça de alterar o "MONGO_URI" pela sua URI do mongoDb.
+4. Agora, edite o arquivo .env com as variáveis de ambinete do arquivo .env.example. Não esqueça de alterar o "MONGO_URI" pela sua URI do mongoDb.
 
 5.Instale as dependências do projeto:
 
