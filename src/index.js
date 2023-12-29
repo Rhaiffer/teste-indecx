@@ -18,6 +18,10 @@ const corsOptions = {
   optionsSuccessStatus: 204,
 };
 
+app.get('/', (req, res) => {
+  res.send('Hello World');
+});
+
 connectDB();
 
 app.use(cors(corsOptions));
