@@ -19,7 +19,7 @@ const corsOptions = {
 };
 
 app.get('/', (req, res) => {
-  res.send('Hello World');
+  res.send('Bem-vindo à API de gerenciamento de tarefas!');
 });
 
 connectDB();
