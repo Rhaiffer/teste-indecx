@@ -93,7 +93,7 @@
             "name": "authorization",
             "in": "header",
             "type": "string",
-            "description": "Para inserir o token de autenticação, clique no botão Authorize e insira o token no campo value dessa forma: Bearer {token}",
+            "description": "Para inserir o token de autenticação, clique no botão Authorization e insira o token dessa forma: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
             "schema": "bearer"
           }
         ],
@@ -123,7 +123,7 @@
             "name": "authorization",
             "in": "header",
             "type": "string",
-            "description": "Para inserir o token de autenticação, clique no botão Authorize e insira o token no campo value dessa forma: Bearer {token}",
+            "description": "Para inserir o token de autenticação, clique no botão Authorization e insira o token dessa forma: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
             "schema": "bearer"
           }
         ],
@@ -160,7 +160,7 @@
             "name": "authorization",
             "in": "header",
             "type": "string",
-            "description": "Para inserir o token de autenticação, clique no botão Authorize e insira o token no campo value dessa forma: Bearer {token}",
+            "description": "Para inserir o token de autenticação, clique no botão Authorization e insira o token dessa forma: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
             "schema": "bearer"
           },
           {
@@ -218,7 +218,7 @@
             "name": "authorization",
             "in": "header",
             "type": "string",
-            "description": "Para inserir o token de autenticação, clique no botão Authorize e insira o token no campo value dessa forma: Bearer {token}",
+            "description": "Para inserir o token de autenticação, clique no botão Authorization e insira o token dessa forma: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
             "schema": "bearer"
           }
         ],
@@ -251,7 +251,7 @@
             "name": "authorization",
             "in": "header",
             "type": "string",
-            "description": "Para inserir o token de autenticação, clique no botão Authorize e insira o token no campo value dessa forma: Bearer {token}",
+            "description": "Para inserir o token de autenticação, clique no botão Authorization e insira o token dessa forma: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
             "schema": "bearer"
           },
           {
@@ -294,7 +294,7 @@
             "name": "authorization",
             "in": "header",
             "type": "string",
-            "description": "Para inserir o token de autenticação, clique no botão Authorize e insira o token no campo value dessa forma: Bearer {token}",
+            "description": "Para inserir o token de autenticação, clique no botão Authorization e insira o token dessa forma: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
             "schema": "bearer"
           }
         ],
@@ -324,7 +324,7 @@
             "name": "authorization",
             "in": "header",
             "type": "string",
-            "description": "Para inserir o token de autenticação, clique no botão Authorize e insira o token no campo value dessa forma: Bearer {token}",
+            "description": "Para inserir o token de autenticação, clique no botão Authorization e insira o token dessa forma: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
             "schema": "bearer"
           },
           {
@@ -373,7 +373,7 @@
             "name": "authorization",
             "in": "header",
             "type": "string",
-            "description": "Para inserir o token de autenticação, clique no botão Authorize e insira o token no campo value dessa forma: Bearer {token}",
+            "description": "Para inserir o token de autenticação, clique no botão Authorization e insira o token dessa forma: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
             "schema": "bearer"
           }
         ],
@@ -410,7 +410,7 @@
             "name": "authorization",
             "in": "header",
             "type": "string",
-            "description": "Para inserir o token de autenticação, clique no botão Authorize e insira o token no campo value dessa forma: Bearer {token}",
+            "description": "Para inserir o token de autenticação, clique no botão Authorization e insira o token dessa forma: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
             "schema": "bearer"
           },
           {
@@ -465,7 +465,7 @@
             "name": "authorization",
             "in": "header",
             "type": "string",
-            "description": "Para inserir o token de autenticação, clique no botão Authorize e insira o token no campo value dessa forma: Bearer {token}",
+            "description": "Para inserir o token de autenticação, clique no botão Authorization e insira o token dessa forma: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
             "schema": "bearer"
           }
         ],
